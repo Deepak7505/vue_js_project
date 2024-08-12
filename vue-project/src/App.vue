@@ -1,11 +1,11 @@
 
  <template>
-  <div id="appvue" class="d-flex shadow m-2">
+  <div id="appvue" class="d-flex shadow m-2 container-fluid">
     <!-- Sidebar for chat persons -->
     <ChatSidebar :chats="chats" @select-chat="selectChat" />
 
     <!-- Main chat window -->
-    <ChatWindow :activeChat="activeChat" @send-message="sendMessage" />
+    <ChatWindow  :activeChat="activeChat" @send-message="sendMessage" />
     <!-- <ChatWindow :activeChat="currentChat" @send-message="handleSendMessage"/> -->
   </div>
 </template>
@@ -153,8 +153,13 @@ export default {
   height: max-content;
 }
 
+
+
  #appvue {
   width: 100%;
+  /* @media (min-width: 1400px) { 
+    width: 100%;
+   } */
 
 } 
 </style>
