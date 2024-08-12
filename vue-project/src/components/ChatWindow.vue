@@ -1,5 +1,5 @@
  <template>
-    <div class="container chat-window flex-grow-1 d-flex flex-column">
+    <div class="container chat-window w-100 flex-grow-1 d-flex flex-column">
       <div class="chat-header p-3 border-bottom">
         <img :src="activeChat.avatar" alt="Avatar" class="rounded-circle me-2" style="width: 40px; height: 40px;">
         <strong>{{ activeChat.name }}</strong>
@@ -8,11 +8,11 @@
         <div :style="{ textAlign: message.text.text ? 'right' : 'left' }"
           v-for="message in activeChat.messages" 
           :key="message.id" 
-          :class="['message', message.text.text ? 'text-right' : 'text-left']"
+          :class="['message', message.text.text ? 'text-right' : 'text-left '] "
         >
-          <div class="p-2 my-2 rounded bg-light d-inline-block">
+          <div class="p-2 my-2 rounded chat-text d-inline-block">
             {{ message.text.text ? message.text.text : message.text }}
-              {{ console.log(message,'this is in the box ') }}
+              
           </div>
         </div>
 
@@ -75,6 +75,11 @@ export default {
   background-color: #fff;
   border-radius: 1rem;
   margin-bottom: 1rem;
+}
+
+.chat-text {
+  background-color: #eff0f679;
+
 }
 </style>
 

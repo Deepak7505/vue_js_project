@@ -1,6 +1,6 @@
 
  <template>
-  <div id="appvue" class="d-flex p-2 m-2 vh-90 vw-100 container">
+  <div id="appvue" class="d-flex shadow m-2">
     <!-- Sidebar for chat persons -->
     <ChatSidebar :chats="chats" @select-chat="selectChat" />
 
@@ -76,6 +76,50 @@ export default {
             { id: 1, text: 'Hey wanna meet today', sender: 'Jane Smith' },
             { id: 2, text: 'ket me know the time ', sender: 'me' },
           ]
+        },
+        {
+          id: 6,
+          name: 'Alister cook',
+          lastMessage: 'Hey, how are you?',
+          lastMessageTime: '10:30 AM',
+           avatar: 'https://tse1.mm.bing.net/th?id=OIP.X9gYA6VDsnaSpMqBOWKH5wHaGv&pid=Api&P=0&h=180',
+          messages: [
+            { id: 1, text: 'Hello!', sender: 'me' },
+            { id: 2, text: 'Hey, how are you?', sender: 'John Doe' },
+          ]
+        },
+        {
+          id: 7,
+          name: 'Stiven Smith',
+          lastMessage: 'Are we meeting today?',
+          lastMessageTime: 'Yesterday',
+           avatar: 'https://tse3.mm.bing.net/th?id=OIP.hvnLMouI3oxrDanXOSmC0wHaHw&pid=Api&P=0&h=180',
+          messages: [
+            { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
+            { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
+          ]
+        },
+        {
+          id: 8,
+          name: 'Shaun tate',
+          lastMessage: 'yes it was good ',
+          lastMessageTime: 'Yesterday',
+           avatar: 'https://tse4.explicit.bing.net/th?id=OIP.E-nFpaLky8KfA1mYdvSsSwHaFj&pid=Api&P=0&h=180',
+          messages: [
+            { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
+            { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
+          ]
+        },
+        {
+          id: 9,
+          name: 'Michel jhonson',
+          lastMessage: 'yes it was good ',
+          lastMessageTime: 'Yesterday',
+           avatar: 'https://tse4.explicit.bing.net/th?id=OIP.E-nFpaLky8KfA1mYdvSsSwHaFj&pid=Api&P=0&h=180',
+          messages: [
+            { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
+            { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
+          ]
         }
       ],
       activeChat: {}
@@ -102,12 +146,17 @@ export default {
 <style>
 #app {
   display: flex;
-  /* background-color: #E4E4E4 */
+  /* background-color: #E4E4E4; */
+  padding: 0%;
+  margin: 0%;
+  width: 100%;
+  height: max-content;
 }
 
-#appvue {
-  border: 1px solid black
-}
+ #appvue {
+  width: 100%;
+
+} 
 </style>
 
 
