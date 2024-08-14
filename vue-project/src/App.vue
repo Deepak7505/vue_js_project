@@ -1,12 +1,11 @@
-
  <template>
   <div id="appvue" class="d-flex shadow m-2 container-fluid">
-    <!-- Sidebar for chat persons -->
+
     <ChatSidebar :chats="chats" @select-chat="selectChat" />
 
-    <!-- Main chat window -->
+
     <ChatWindow  :activeChat="activeChat" @send-message="sendMessage" />
-    <!-- <ChatWindow :activeChat="currentChat" @send-message="handleSendMessage"/> -->
+
   </div>
 </template>
 
@@ -27,7 +26,9 @@ export default {
           name: 'John Doe',
           lastMessage: 'Hey, how are you?',
           lastMessageTime: '10:30 AM',
-           avatar: 'https://tse1.mm.bing.net/th?id=OIP.X9gYA6VDsnaSpMqBOWKH5wHaGv&pid=Api&P=0&h=180',
+          unreadCount: 0, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat  
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Hello!', sender: 'me' },
             { id: 2, text: 'Hey, how are you?', sender: 'John Doe' },
@@ -35,13 +36,18 @@ export default {
         },
         {
           id: 2,
-          name: 'Jane Smith',
+          name: 'Trevlers',
           lastMessage: 'Are we meeting today?',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://tse3.mm.bing.net/th?id=OIP.hvnLMouI3oxrDanXOSmC0wHaHw&pid=Api&P=0&h=180',
+          unreadCount: 4, // Number of unread messages
+          isGroup: true, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.Hgl0WEK0vs03QPwIX73ywQHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
+            { id: 1, text: 'I want to know the time', sender: 'Jane Smith' },
+            { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
+
           ]
         },
         {
@@ -49,7 +55,9 @@ export default {
           name: 'John sina',
           lastMessage: 'yes it was good ',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://tse4.explicit.bing.net/th?id=OIP.E-nFpaLky8KfA1mYdvSsSwHaFj&pid=Api&P=0&h=180',
+          unreadCount: 2, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
@@ -57,10 +65,12 @@ export default {
         },
         {
           id: 4,
-          name: 'Ben stokes',
+          name: 'Smith Family',
           lastMessage: 'Yes, let me know the time. ',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://www.vhv.rs/dpng/d/551-5511364_circle-profile-man-hd-png-download.png',
+          unreadCount: 0, // Number of unread messages
+          isGroup: true, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.Hgl0WEK0vs03QPwIX73ywQHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'we will go home soon', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
@@ -68,13 +78,19 @@ export default {
         },
         {
           id: 5,
-          name: 'Amilia co',
-          lastMessage: 'Hey wanna meet today',
+          name: 'The creaters',
+          lastMessage: 'Emergency',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://cdn2.f-cdn.com/files/download/38545966/4bce6b.jpg',
+          unreadCount: 5, // Number of unread messages
+          isGroup: true, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.Hgl0WEK0vs03QPwIX73ywQHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Hey wanna meet today', sender: 'Jane Smith' },
             { id: 2, text: 'ket me know the time ', sender: 'me' },
+            { id: 1, text: 'Its ', sender: 'Jane Smith' },
+            { id: 1, text: 'An ', sender: 'Jane Smith' },
+            { id: 1, text: 'Emergency', sender: 'Jane Smith' },
+
           ]
         },
         {
@@ -82,7 +98,9 @@ export default {
           name: 'Alister cook',
           lastMessage: 'Hey, how are you?',
           lastMessageTime: '10:30 AM',
-           avatar: 'https://tse1.mm.bing.net/th?id=OIP.X9gYA6VDsnaSpMqBOWKH5wHaGv&pid=Api&P=0&h=180',
+          unreadCount: 0, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat  
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Hello!', sender: 'me' },
             { id: 2, text: 'Hey, how are you?', sender: 'John Doe' },
@@ -93,7 +111,9 @@ export default {
           name: 'Stiven Smith',
           lastMessage: 'Are we meeting today?',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://tse3.mm.bing.net/th?id=OIP.hvnLMouI3oxrDanXOSmC0wHaHw&pid=Api&P=0&h=180',
+          unreadCount: 2, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
@@ -104,7 +124,9 @@ export default {
           name: 'Shaun tate',
           lastMessage: 'yes it was good ',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://tse4.explicit.bing.net/th?id=OIP.E-nFpaLky8KfA1mYdvSsSwHaFj&pid=Api&P=0&h=180',
+          unreadCount: 0, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat',
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
@@ -115,7 +137,9 @@ export default {
           name: 'Michel jhonson',
           lastMessage: 'yes it was good ',
           lastMessageTime: 'Yesterday',
-           avatar: 'https://tse4.explicit.bing.net/th?id=OIP.E-nFpaLky8KfA1mYdvSsSwHaFj&pid=Api&P=0&h=180',
+          unreadCount: 0, // Number of unread messages
+          isGroup: false, // Indicates it's an individual chat
+          avatar: 'https://tse1.mm.bing.net/th?id=OIP.TSdjZaOzQAo_pkVZWysyUAHaHa&pid=Api&P=0&h=180',
           messages: [
             { id: 1, text: 'Are we meeting today?', sender: 'Jane Smith' },
             { id: 2, text: 'Yes, let me know the time.', sender: 'me' },
@@ -124,22 +148,31 @@ export default {
       ],
       activeChat: {}
     };
-  },
+  }
+  ,
   mounted() {
     this.activeChat = this.chats[0]; // Set the first chat as active by default
   },
   methods: {
-    selectChat(chat) {
-      this.activeChat = chat;
-    },
-    sendMessage(message) {
+  selectChat(chat) {
+    chat.unreadCount = 0; // Reset unread count when the chat is selected
+    this.activeChat = chat; // Set the selected chat as active
+  },
+  sendMessage(message) {
+    if (this.activeChat && this.activeChat.messages) {
       this.activeChat.messages.push({
         id: this.activeChat.messages.length + 1,
         text: message,
         sender: 'me'
       });
-    },
+      this.activeChat.lastMessage = message;
+      this.activeChat.lastMessageTime = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
   }
+}
 };
 </script>
 
@@ -162,41 +195,5 @@ export default {
    } */
 
 } 
-</style>
+</style> 
 
-
-
-
-
-
-
-
-
-
-<!-- <template>
-  <div class="container">
-    <ChatComponent />
-  </div>
-</template>
-
-<script>
-import ChatComponent from './components/ChatComponent.vue';
-
-export default {
-  name: 'App',
-  components: {
-    ChatComponent,
-  },
-};
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style> --> 
